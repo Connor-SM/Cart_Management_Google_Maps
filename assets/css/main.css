@@ -1,0 +1,105 @@
+html, body {
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: helvetica, arial, sans-serif;
+}
+
+.navbar, .navbar-inverse {
+  border-radius: 0px;
+}
+
+.product {
+  height: 300px;
+  width: 300px;
+  margin: 40px 0px;
+  text-align: center;
+  float: left;
+}
+
+figure>img, figure>figcaption, .product_button {
+  margin: 5px;
+}
+
+figcaption {
+  font-weight: bold;
+}
+
+figcaption>span {
+  font-weight: normal;
+}
+
+.product_button {
+  color: #9d9d9d;
+  border: 1px solid lightgrey;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: black;
+}
+
+#cart {
+  margin: 20px 0px;
+  border: 1px solid black;
+  min-width: 260px;
+  display: none;
+}
+
+.cart_title {
+  margin: 0px;
+  margin-bottom: 8px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  background-color: lightgrey;
+  border-bottom: 1px solid black;
+}
+
+.cart_product_title {
+  margin: 2px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.cart_price {
+  text-align: right;
+  font-weight: normal;
+  margin: 2px;
+  padding: 2px 5px;
+}
+
+.remove_cart_button {
+  color: white;
+  background-color: red;
+  border-radius: 100%;
+  border: 0px;
+}
+
+.total_title {
+  margin: 0px;
+  margin-top: 8px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  background-color: lightgrey;
+  border-top: 1px solid black;
+}
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+#map_title {
+  text-align: center;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.map_container {
+  background-color: lightgrey;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "101",
+    "name":"Hand Sanitizer",
+    "description":"EEF FREEF",
+    "price":1.99
+  },
+  {
+    "id": "102",
+    "name":"Bag O' Donuts",
+    "description":"AMURICA RUNN NO DUNDUN",
+    "price":2.99
+  },
+  {
+    "id": "103",
+    "name":"French Fries",
+    "description":"OLD FASHINED HURGUSBURGUS",
+    "price":3.99
+  },
+  {
+    "id": "104",
+    "name":"Burgers",
+    "description":"HAVE IT IN A WAY",
+    "price":4.99
+  },
+  {
+    "id": "105",
+    "name":"Large Mc'Bites",
+    "description":"I LIKE THE IT",
+    "price":2.00
+  }
+]

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopping Cart</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./index.html">Shopping Cart</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Page 1-1</a></li>
+                  <li><a href="#">Page 1-2</a></li>
+                  <li><a href="#">Page 1-3</a></li>
+                </ul>
+              </li>
+              <li><a href="#product_section">Products</a></li>
+              <li><a href="#map">Location</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li id="cart-total"><a href="#" onclick="getCart()">Cart $0.00</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-12">
+          <div class="products" id="product_section">
+
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-12">
+          <div id="cart">
+            <!-- <h3 class="cart_title">Cart</h3>
+            <h5 class="cart_product_title">WEEDYS
+            <span class="cart_price">$2.99</span>
+            <button onclick="remove_from_cart()" class="remove_cart_button">X</button></h5>
+            <h5 class="total_title">Total: $0.00</h5> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="new_cart">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row map_container">
+      <div class="col-md-12">
+        <h1 id="map_title">Our Location</h1>
+        <div id="map">
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Adding firebase to app -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js">
+    </script>
+    <!-- required url for firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js">
+    </script>
+    <!-- database url -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js">
+    </script>
+    <!-- Initalise firebase -->
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDJYIZX2WN49jxh27HeZI7VDv1ion7aGhs",
+        authDomain: "my-project-1522160617052.firebaseapp.com",
+        databaseURL: "https://my-project-1522160617052.firebaseio.com",
+        projectId: "my-project-1522160617052",
+        storageBucket: "my-project-1522160617052.appspot.com",
+        messagingSenderId: "596238937135"
+      };
+      firebase.initializeApp(config);
+
+      // Get a reference to the database service
+      var database = firebase.database();
+    </script>
+
+    <!-- Call to display google maps api -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9gqpcUZgUzjiItlSRR1Dw5_-2ok5Ycxo&callback=showMap"
+    async defer></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
