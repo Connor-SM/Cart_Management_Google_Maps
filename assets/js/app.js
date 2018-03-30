@@ -124,8 +124,19 @@ function writeUserData(cart) {
   });
 }
 
+// check for multiples of the item being indexed and return an id with a count
+function checkDuplicate(cart, index) {
+  var count = 0;
+  for (var i = index; i < cart.length; i++) {
+    if (cart[index].id == cart[i].id) {
+      count += 1;
+    };
+  };
+  return count
+}
+
 // show the side cart -- add on for later when using json to hold cart
-function showCart(cart) {
+function showCart(cart, duplicate_ids) {
   // get total value for cart
   var newTotal = getCartTotal(cart);
 
@@ -136,14 +147,35 @@ function showCart(cart) {
   // make sure cart isn't null, or else will throw error
   if (cart === null) {
     $('#cart').css('display', 'none');
+    duplicate_ids = [];
   } else {
+    // keep list of id's for duplicates
+    // var duplicate_ids = [];
+
     // change html for cart on side
     var HTML = '<h3 class="cart_title">Cart</h3>';
     for (var i = 0; i < cart.length; i++) {
-      HTML += '<h5 class="cart_product_title">' + cart[i].name +
-      '<span class="cart_price">$' + cart[i].price.toFixed(2) + '</span>' +
-      '<button onclick="remove_from_cart(' + cart[i].id + ')" ' + 'class="remove_cart_button">X</button></h5>';
-    }
+      var quantity = checkDuplicate(cart, i);
+
+      var flag = false;
+
+      // if the id was already pushed to duplicates then don't show
+      for (var j = 0; j <= cart.length; j++) {
+        if (cart[i].id == duplicate_ids[j]) {
+          flag = true;
+          break;
+        }
+      };
+      if (flag == false) {
+        HTML += '<h5 class="cart_product_title">(' +
+        quantity + ')  ' + cart[i].name +
+        '<span class="cart_price">$' + cart[i].price.toFixed(2) + '</span>' +
+        '<button onclick="remove_from_cart(' + cart[i].id + ')" ' + 'class="remove_cart_button">X</button></h5>';
+
+        // add id to duplicates
+        duplicate_ids.push(cart[i].id);
+      };
+    };
     HTML += '<h5 class="total_title">Total: ' + newTotal + '</h5>'
 
     $('#cart').html(HTML);
@@ -157,7 +189,7 @@ function showCart(cart) {
 function getCart() {
   var current_cart = firebase.database().ref('cart/items');
   current_cart.on('value', function(items) {
-    showCart(items.val());
+    showCart(items.val(), []);
     if (items.val() == null) {
       cart = [];
     } else {
